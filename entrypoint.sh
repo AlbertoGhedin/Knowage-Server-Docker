@@ -23,15 +23,15 @@ if [ -n "$WAIT_MYSQL" ]; then
 	done
 fi
 
-echo "$DB_ENV_MYSQL_USER"
-echo "$DB_ENV_MYSQL_DATABASE"
-echo "$DB_ENV_MYSQL_PASSWORD"
+echo "$DB_USER"
+echo "$DB_DB"
+echo "$DB_PASS"
 echo "$MYSQL_USER"
 
 # Get the database values from the relation.
-DB_USER=$DB_ENV_MYSQL_USER
-DB_DB=$DB_ENV_MYSQL_DATABASE
-DB_PASS=$DB_ENV_MYSQL_PASSWORD
+DB_USER=$DB_USER
+DB_DB=$DB_DB
+DB_PASS=$DB_PASS
 DB_HOST=$MYSQL
 DB_PORT=3306
 
