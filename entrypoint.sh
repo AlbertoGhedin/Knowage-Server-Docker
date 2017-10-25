@@ -15,9 +15,9 @@ sed -i "s|http:\/\/localhost:8080|http:\/\/${PUBLIC_ADDRESS}:8080|g" ${KNOWAGE_D
 #wait for mysql if it's a compose image
 if [ -n "$WAIT_MYSQL" ]; then
 	sleep 5
-	while ! curl http://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/
+	while ! curl http://$MYSQL:3306
 	do
-	  echo "http://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/"
+	  echo "http://$MYSQL"
 	   echo "$(date) - still trying to connect to mysql"
 	  sleep 1
 	done
@@ -27,8 +27,8 @@ fi
 DB_USER=$DB_ENV_MYSQL_USER
 DB_DB=$DB_ENV_MYSQL_DATABASE
 DB_PASS=$DB_ENV_MYSQL_PASSWORD
-DB_HOST=$DB_PORT_3306_TCP_ADDR
-DB_PORT=$DB_PORT_3306_TCP_PORT
+DB_HOST=$MYSQL
+DB_PORT=3306
 
 #insert knowage metadata into db if it doesn't exist
 result=`mysql -h${DB_HOST} -P${DB_PORT} -u${DB_USER} -p${DB_PASS} ${DB_DB} -e "SHOW TABLES LIKE '%SBI_%';"`
