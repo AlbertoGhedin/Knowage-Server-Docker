@@ -26,6 +26,7 @@ fi
 echo "$DB_ENV_MYSQL_USER"
 echo "$DB_ENV_MYSQL_DATABASE"
 echo "$DB_ENV_MYSQL_PASSWORD"
+echo "$MYSQL_USER"
 
 # Get the database values from the relation.
 DB_USER=$DB_ENV_MYSQL_USER
