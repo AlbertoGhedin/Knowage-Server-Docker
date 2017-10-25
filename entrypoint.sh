@@ -17,7 +17,8 @@ if [ -n "$WAIT_MYSQL" ]; then
 	sleep 5
 	while ! curl http://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/
 	do
-	  echo "$(date) - still trying to connect to mysql"
+	  echo "http://$DB_PORT_3306_TCP_ADDR:$DB_PORT_3306_TCP_PORT/"
+	   echo "$(date) - still trying to connect to mysql"
 	  sleep 1
 	done
 fi
